@@ -8,12 +8,6 @@
      */
 
     class Request {
-                
-        /**
-         * getPath
-         *
-         * @return void
-         */
 
         public function getPath()
         {
@@ -29,7 +23,7 @@
 
         public function getMethod()
         {
-
+            return strtolower($_SERVER['REQUEST_METHOD']);
         }
 
     }
