@@ -1,0 +1,15 @@
+{
+    "name": "ayanesh/php-mvc",
+    "authors": [
+        {
+            "name": "Ayanesh Sarkar",
+            "email": "ayaneshsarkar101@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
