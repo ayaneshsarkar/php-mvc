@@ -1,16 +1,12 @@
 <?php
 
-  require_once __DIR__ . '/../vendor/autoload.php';
-  use app\core\Application;
-  
-  $app = new Application();
+    require_once __DIR__ . '/../vendor/autoload.php';
+    use app\core\Application;
 
-  $app->router->get('/', function() {
-    return "<h1>Hello World!</h1>";
-  });
+    $app = new Application(dirname(__DIR__));
 
-  $app->router->get('/users', function() {
-    return "<h1>Hello Users!</h1>";
-  });
+    $app->router->get('/', 'welcome');
 
-  $app->run();
+    $app->router->get('/about', 'about');
+
+    $app->run();
