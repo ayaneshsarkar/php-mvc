@@ -1,9 +1,9 @@
 <?php
 
     namespace app\core;
-    
+
     /**
-     * Response
+     * Response class
      * @package app\core
      */
 

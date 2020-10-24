@@ -6,10 +6,9 @@
     use app\core\Response;
     
     /**
-     * Class Router
+     * Router class
      * @package app\core
      */
-
     class Router {
 
         public Request $request;
@@ -17,11 +16,10 @@
         protected array $routes = [];
         
         /**
-         * __construct
+         * __construct function
          *
-         * @param  app\core\Request $request
-         * @param  app\core\Response $response
-         * @return void
+         * @param Request $request
+         * @param Response $response
          */
 
         public function __construct(Request $request, Response $response)
@@ -31,63 +29,71 @@
         }
         
         /**
-         * get
+         * get function
          *
-         * @param  string $path
-         * @param  mixed $callback
+         * @param string $path
+         * @param [type] $callback
          * @return void
          */
-        
+
         public function get(string $path, $callback)
         {
             $this->routes['get'][$path] = $callback;
         }
         
         /**
-         * post
+         * post function
          *
-         * @param  mixed $path
-         * @param  mixed $callback
+         * @param string $path
+         * @param [type] $callback
          * @return void
          */
-        
+
         public function post(string $path, $callback)
         {
             $this->routes['post'][$path] = $callback;
         }
 
-        protected function layoutContent()
+        protected function layoutContent(array $params)
         {
+            foreach($params as $key => $param) {
+                $$key = $param;
+            }
+
             ob_start();
             include_once Application::$ROOT_DIR . '/views/layouts/main.php';
             return ob_get_clean();
         }
         
         /**
-         * renderOnlyView
+         * renderOnlyView function
          *
          * @param string $view
          * @return void
          */
 
-        protected function renderOnlyView(string $view)
+        protected function renderOnlyView(string $view, array $params)
         {
+            foreach($params as $key => $param) {
+                $$key = $param;
+            }
+
             ob_start();
             include_once Application::$ROOT_DIR . "/views/$view.php";
             return ob_get_clean();
         }
-        
+
         /**
-         * renderView
+         * renderView function
          *
-         * @param  string $view
+         * @param string $view
+         * @param array $params
          * @return void
          */
-
-        public function renderView(string $view)
+        public function renderView(string $view, array $params = [])
         {
-            $layoutContent = $this->layoutContent();
-            $viewContent = $this->renderOnlyView($view);
+            $layoutContent = $this->layoutContent($params);
+            $viewContent = $this->renderOnlyView($view, $params);
             return str_replace('{{ content }}', $viewContent, $layoutContent);
         }
         
@@ -104,6 +110,10 @@
 
             if(is_string($callback)) {
                 return $this->renderView($callback);
+            }
+
+            if(is_array($callback)) {
+                $callback[0] = new $callback[0]();
             }
 
             return call_user_func($callback);

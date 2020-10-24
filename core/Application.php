@@ -4,12 +4,11 @@
     use app\core\Router;
     use app\core\Request;
     use app\core\Response;
-    
+
     /**
-     * Class Application
+     * Application class
      * @package app\core
      */
-
     class Application {
 
         public static string $ROOT_DIR;
@@ -18,11 +17,11 @@
         public Response $response;
         public static Application $app;
                 
+        
         /**
-         * __construct
+         * __construct function
          *
-         * @param  string $path
-         * @return void
+         * @param string $path
          */
 
         public function __construct(string $path)
