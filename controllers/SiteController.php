@@ -3,8 +3,9 @@
     namespace app\controllers;
     use app\core\Application;
     use app\controllers\Controller;
+use app\core\Request;
 
-    /**
+/**
      * SiteController class
      * @author Ayanesh Sarkar <ayaneshsarkar101@gmail.com>
      * @package app\controllers
@@ -42,12 +43,20 @@
             return $this->render('contact', $data);
         }
 
-        public function storeContact()
+        /**
+         * storecontact function
+         *
+         * @param Request $request
+         * @return string
+         */
+        public function storeContact(Request $request)
         {
-            // echo "<pre>";
-            // var_dump($_POST);
-            // echo "</pre>";
-            //exit;
+            $body = $request->getBody();
+
+            echo "<pre>";
+            var_dump($body);
+            echo "</pre>";
+            exit;
 
             return 'Handle Submit Data!';
         }
