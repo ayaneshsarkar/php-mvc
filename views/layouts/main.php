@@ -27,6 +27,9 @@
             <li class="nav-item <?= ($name == 'about') ? 'active' : '' ?>">
               <a class="nav-link" href="/about">About Us</a>
             </li>
+            <li class="nav-item <?= ($name == 'contact') ? 'active' : '' ?>">
+              <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
           </ul>
         </div>
       </div>

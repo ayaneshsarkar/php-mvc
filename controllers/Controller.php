@@ -15,7 +15,7 @@
          *
          * @param string $view
          * @param array $params
-         * @return void
+         * @return renderView
          */
         public function render(string $view, array $params = [])
         {
