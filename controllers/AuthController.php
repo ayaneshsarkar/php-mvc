@@ -23,13 +23,19 @@ use app\core\Request;
          * @param Request $request
          * @return $this->render()
          */
+         
         public function register(Request $request)
         {
+            $data = [
+                'title' => 'Create An Account',
+                'name' => 'register'
+            ];
+
             if($request->isPost()) {
                 return 'Handle Submitted Data!';
             }
 
-            return $this->render('register');
+            return $this->render('register', $data);
         }
 
     }

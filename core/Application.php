@@ -16,7 +16,6 @@
         public Request $request;
         public Response $response;
         public static Application $app;
-                
         
         /**
          * __construct function

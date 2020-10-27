@@ -7,6 +7,7 @@
     
     /**
      * Router class
+     * @author Ayanesh Sarkar <ayaneshsarkar101@gmail.com>
      * @package app\core
      */
     class Router {
@@ -90,6 +91,7 @@
          * @param array $params
          * @return void
          */
+        
         public function renderView(string $view, array $params = [])
         {
             $layoutContent = $this->layoutContent($params);

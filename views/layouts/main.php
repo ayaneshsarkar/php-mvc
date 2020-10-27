@@ -30,6 +30,9 @@
             <li class="nav-item <?= ($name == 'contact') ? 'active' : '' ?>">
               <a class="nav-link" href="/contact">Contact Us</a>
             </li>
+            <li class="nav-item <?= ($name == 'register') ? 'active' : '' ?>">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
           </ul>
         </div>
       </div>
