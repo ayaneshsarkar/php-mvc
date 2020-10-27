@@ -10,6 +10,13 @@
      */
     class Controller {
 
+        public string $layout = 'main';
+
+        public function setLayout(string $layout)
+        {
+            $this->layout = $layout;
+        }
+
         /**
          * render function
          *
@@ -17,6 +24,7 @@
          * @param array $params
          * @return renderView
          */
+
         public function render(string $view, array $params = [])
         {
             return Application::$app->router->renderView($view, $params);

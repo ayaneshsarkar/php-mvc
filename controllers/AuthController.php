@@ -14,6 +14,7 @@ use app\core\Request;
 
         public function login()
         {
+            $this->setLayout('auth');
             return $this->render('login');
         }
         
@@ -34,6 +35,8 @@ use app\core\Request;
             if($request->isPost()) {
                 return 'Handle Submitted Data!';
             }
+
+            $this->setLayout('auth');
 
             return $this->render('register', $data);
         }
