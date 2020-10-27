@@ -40,6 +40,8 @@ use app\core\Request;
                 'name' => 'contact'
             ];
             
+            $this->setLayout('auth');
+
             return $this->render('contact', $data);
         }
 

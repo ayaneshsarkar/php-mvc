@@ -12,7 +12,7 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success py-3">
       <div class="container">
         <a class="navbar-brand" href="/">PHP-MVC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,6 +29,9 @@
             </li>
             <li class="nav-item <?= ($name == 'contact') ? 'active' : '' ?>">
               <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+            <li class="nav-item <?= ($name == 'login') ? 'active' : '' ?>">
+              <a class="nav-link" href="/login">Login</a>
             </li>
             <li class="nav-item <?= ($name == 'register') ? 'active' : '' ?>">
               <a class="nav-link" href="/register">Register</a>
