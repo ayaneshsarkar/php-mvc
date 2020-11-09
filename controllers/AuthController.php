@@ -5,7 +5,7 @@
     use app\core\Request;
     use app\models\RegisterModel;
 
-/**
+    /**
      * AuthController class
      * @author Ayanesh Sarkar <ayaneshsarkar101@gmail.com>
      * @package app\controllers
@@ -17,7 +17,7 @@
         {
             $data = [
                 'title' => 'Login',
-                'name' => 'login'
+                'name' => 'login'            
             ];
 
             $this->setLayout('auth');
@@ -37,7 +37,8 @@
 
             $data = [
                 'title' => 'Create An Account',
-                'name' => 'register'
+                'name' => 'register',
+                'model' => $registerModel
             ];
 
             if($request->isPost()) {

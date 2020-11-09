@@ -29,7 +29,8 @@
 
         abstract public function rules(): array;
 
-        public function validate() {
+        public function validate(): bool 
+        {
             foreach($this->rules() as $attr => $rules) {
                 $value = $this->{$attr};
                 
@@ -65,7 +66,8 @@
             return empty($this->errors);
         }
 
-        public function addError(string $attribute, string $rule, array $params = []) {
+        public function addError(string $attribute, string $rule, array $params = []) 
+        {
             $message = $this->errorMessages()[$rule];
 
             foreach($params as $key => $value) {
