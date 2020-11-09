@@ -7,13 +7,13 @@
     <div class="col-12 mb-5">
       <form action="/register" method="POST">
         <div class="form-group">
-          <label for="first_name">First Name</label>
-          <input type="text" name="first_name" class="form-control form-control-lg" placeholder="First Name">
+          <label for="firstname">First Name</label>
+          <input type="text" name="firstname" class="form-control form-control-lg" placeholder="First Name">
         </div>
 
         <div class="form-group">
-          <label for="last_name">Last Name</label>
-          <input type="text" name="last_name" class="form-control form-control-lg" placeholder="Last Name">
+          <label for="lastname">Last Name</label>
+          <input type="text" name="lastname" class="form-control form-control-lg" placeholder="Last Name">
         </div>
 
         <div class="form-group">
@@ -28,7 +28,7 @@
 
         <div class="form-group">
           <label for="password">Confirm Password</label>
-          <input type="password" name="confirm_password" class="form-control form-control-lg" 
+          <input type="password" name="confirmPassword" class="form-control form-control-lg" 
           placeholder="Confirm Password">
         </div>
 
