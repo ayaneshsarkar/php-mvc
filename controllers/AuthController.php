@@ -33,7 +33,7 @@
          
         public function register(Request $request)
         {
-            $register = new RegisterModel();
+            $errors = [];
 
             $data = [
                 'title' => 'Create An Account',
@@ -41,9 +41,9 @@
             ];
 
             if($request->isPost()) {
-                var_dump($request->getBody());
-                exit;
-                return 'Handle Submitted Data!';
+                $register = new RegisterModel();
+
+                return 'Handle Submitted Data';
             }
 
             $this->setLayout('auth');
