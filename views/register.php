@@ -9,27 +9,32 @@
         <div class="form-group">
           <label for="firstname">First Name</label>
           <input type="text" name="firstname" class="form-control form-control-lg" placeholder="First Name">
+          <span class="invalid-feedback d-block"><?= $errors['firstname'][0] ?? '' ?></span>
         </div>
 
         <div class="form-group">
           <label for="lastname">Last Name</label>
           <input type="text" name="lastname" class="form-control form-control-lg" placeholder="Last Name">
+          <span class="invalid-feedback d-block"><?= $errors['lastname'][0] ?? '' ?></span>
         </div>
 
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" name="email" class="form-control form-control-lg" placeholder="Email">
+          <span class="invalid-feedback d-block"><?= $errors['email'][0] ?? '' ?></span>
         </div>
 
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" name="password" class="form-control form-control-lg" placeholder="Password">
+          <span class="invalid-feedback d-block"><?= $errors['password'][0] ?? '' ?></span>
         </div>
 
         <div class="form-group">
           <label for="password">Confirm Password</label>
           <input type="password" name="confirmPassword" class="form-control form-control-lg" 
           placeholder="Confirm Password">
+          <span class="invalid-feedback d-block"><?= $errors['confirmPassword'][0] ?? '' ?></span>
         </div>
 
         <div class="form-group">

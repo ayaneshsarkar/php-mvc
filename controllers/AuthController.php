@@ -33,30 +33,27 @@
          
         public function register(Request $request)
         {
-            $errors = [];
             $registerModel = new RegisterModel();
 
             $data = [
                 'title' => 'Create An Account',
-                'name' => 'register',
-                'errors' => $errors
+                'name' => 'register'
             ];
 
             if($request->isPost()) {
                 $registerModel->loadData($request->getBody());
 
-                var_dump($registerModel);
-                exit;
-
                 if($registerModel->validate() && $registerModel->register()) {
                     return 'Success';
                 }
 
+                $data['errors'] = $registerModel->errors;
+
+                $this->setLayout('auth');
                 return $this->render('register', $data);
             }
 
             $this->setLayout('auth');
-
             return $this->render('register', $data);
         }
 
