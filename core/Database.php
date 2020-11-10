@@ -47,9 +47,9 @@
                 $className = pathinfo($migration, PATHINFO_FILENAME);
 
                 $instance = new $className();
-                echo "Applying migration $migration\n";
+                $this->log("Applying migration $migration");
                 $instance->up();
-                echo "Applied migration $migration\n";
+                $this->log("Applied migration $migration");
                 
                 $newMIgrtaions[] = $migration;
             }
@@ -57,7 +57,7 @@
             if(!empty($newMIgrtaions)) {
                 $this->saveMigration($newMIgrtaions);
             } else {
-                echo "Applied All Migrations!";
+                echo $this->log("Applied All Migrations!");
             }
         }
 
@@ -78,11 +78,31 @@
             return $statement->fetchAll(PDO::FETCH_COLUMN);
         }
 
+        /**
+         * saveMIgration function
+         *
+         * @param array $migrations
+         * @return void
+         */
         public function saveMigration(array $migrations)
         {
-            // $this->pdo->prepare("INSERT INTO migrations (migration) VALUES 
-            //     ()
-            // ");
+            $str = implode(',', array_map(fn($m) => "('$m')", $migrations));
+
+            $statement = $this->pdo->prepare("INSERT INTO migrations (migration) VALUES $str");
+
+            $statement->execute();
+
+        }
+
+        /**
+         * log function
+         *
+         * @param string $message
+         * @return void
+         */
+        protected function log(string $message)
+        {
+            echo '[' . date('Y:-m-d H:i:s') . '] - ' . $message . PHP_EOL;
         }
 
     }

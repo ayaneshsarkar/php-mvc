@@ -2,6 +2,7 @@
 
     namespace app\models;
     use app\models\Model;
+    use app\core\Application;
 
     /**
      * RegisterModel class
@@ -19,7 +20,7 @@
         
         public function register()
         {
-            echo 'Creating New User!';
+            $db = Application::$app->db;
         }
 
         public function rules(): array
