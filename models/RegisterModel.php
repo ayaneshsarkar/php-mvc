@@ -28,7 +28,7 @@
                 'firstname' => [self::RULE_REQUIRED],
                 'lastname' => [self::RULE_REQUIRED],
                 'email' => [self::RULE_REQUIRED, self::RULE_EMAIL],
-                'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 5], [self::RULE_MAX, 'max' => 7]],
+                'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 5], [self::RULE_MAX, 'max' => 20]],
                 'confirmPassword' => [self::RULE_REQUIRED, [self::RULE_MATCH, 'match' => 'password']]
             ];
         }
