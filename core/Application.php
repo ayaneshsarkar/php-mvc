@@ -5,6 +5,7 @@
     use app\core\Request;
     use app\core\Response;
     use app\controllers\Controller;
+    use app\core\Database;
 
     /**
      * Application class
@@ -17,6 +18,7 @@
         public Router $router;
         public Request $request;
         public Response $response;
+        public Database $db;
         public static Application $app;
         public Controller $controller;
 
@@ -26,13 +28,15 @@
          * @param string $path
          */
 
-        public function __construct(string $path)
+        public function __construct(string $path, array $config)
         {
             self::$ROOT_DIR = $path;
             self::$app = $this;
             $this->request = new Request();
             $this->response = new Response();
             $this->router = new Router($this->request, $this->response);
+
+            $this->db = new Database($config['db']);
         }
 
         /**
