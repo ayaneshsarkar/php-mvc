@@ -57,7 +57,7 @@
                         $this->addError($attr, self::RULE_MAX, $rule);
                     }
 
-                    if($ruleName === self::RULE_MATCH && strlen($value) !== $rule['match']) {
+                    if($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']}) {
                         $this->addError($attr, self::RULE_MATCH, $rule);
                     }
                 }
@@ -81,11 +81,21 @@
         {
             return [
                 self::RULE_REQUIRED => 'This field is required.',
-                self::RULE_EMAIL => 'This field must be a valid email address',
-                self::RULE_MIN => 'Minimum length of this field must be {min}',
-                self::RULE_MAX => 'Maximum length of this field must be {max}',
-                self::RULE_MATCH => 'This field must be the same as {match}'
+                self::RULE_EMAIL => 'This field must be a valid email address.',
+                self::RULE_MIN => 'Minimum length of this field must be {min}.',
+                self::RULE_MAX => 'Maximum length of this field must be {max}.',
+                self::RULE_MATCH => 'This field must be the same as {match}.'
             ];
+        }
+
+        public function hasError(string $attribute)
+        {
+            return $this->errors[$attribute] ?? false;
+        }
+
+        public function getFirstError(string $attribute)
+        {
+           return $this->errors[$attribute][0] ?? '';
         }
 
     }

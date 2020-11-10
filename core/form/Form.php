@@ -39,11 +39,12 @@
          *
          * @param Model $model
          * @param string $attribute
+         * @param string $label
          * @return Field
          */
-        public function field(Model $model, string $attribute): Field
+        public function field(Model $model, string $attribute, string $label = ''): Field
         {
-            return new Field($model, $attribute);
+            return new Field($model, $attribute, $label);
         }
 
     }
