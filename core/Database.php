@@ -3,9 +3,10 @@
     namespace app\core;
     use PDO;
     use app\core\Application;
+    use PDOStatement;
 
 /**
-     * RegisterModel class
+     * Database class
      * @author Ayanesh Sarkar <ayaneshsarkar101@gmail.com>
      * @package app\core
      */
@@ -55,7 +56,7 @@
             }
 
             if(!empty($newMIgrtaions)) {
-                $this->saveMigration($newMIgrtaions);
+                $this->saveMigrations($newMIgrtaions);
             } else {
                 echo $this->log("Applied All Migrations!");
             }
@@ -84,7 +85,7 @@
          * @param array $migrations
          * @return void
          */
-        public function saveMigration(array $migrations)
+        public function saveMigrations(array $migrations)
         {
             $str = implode(',', array_map(fn($m) => "('$m')", $migrations));
 
@@ -92,6 +93,17 @@
 
             $statement->execute();
 
+        }
+
+        /**
+         * prepare function
+         *
+         * @param string $sql
+         * @return PDOStatement
+         */
+        public function prepare(string $sql): PDOStatement
+        {
+            return $this->pdo->prepare($sql);
         }
 
         /**

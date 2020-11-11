@@ -13,4 +13,15 @@
             http_response_code($code);
         }
 
+        /**
+         * redirect function
+         *
+         * @param string $url
+         * @return void
+         */
+        public function redirect(string $url)
+        {
+            header("Location: $url");
+        }
+
     }

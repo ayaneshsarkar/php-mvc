@@ -2,10 +2,11 @@
 
     namespace app\controllers;
     use app\controllers\Controller;
-    use app\core\Request;
-    use app\models\RegisterModel;
+use app\core\Application;
+use app\core\Request;
+    use app\models\User;
 
-    /**
+/**
      * AuthController class
      * @author Ayanesh Sarkar <ayaneshsarkar101@gmail.com>
      * @package app\controllers
@@ -33,22 +34,22 @@
          
         public function register(Request $request)
         {
-            $registerModel = new RegisterModel();
+            $user = new User();
 
             $data = [
                 'title' => 'Create An Account',
                 'name' => 'register',
-                'model' => $registerModel
+                'model' => $user
             ];
 
             if($request->isPost()) {
-                $registerModel->loadData($request->getBody());
+                $user->loadData($request->getBody());
 
-                if($registerModel->validate() && $registerModel->register()) {
-                    return 'Success';
+                if($user->validate() && $user->save()) {
+                    Application::$app->response->redirect('/');
                 }
 
-                $data['errors'] = $registerModel->errors;
+                $data['errors'] = $user->errors;
 
                 $this->setLayout('auth');
                 return $this->render('register', $data);
