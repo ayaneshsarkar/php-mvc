@@ -3,7 +3,7 @@
     namespace app\controllers;
     use app\core\Application;
 
-/**
+    /**
      * Controller class
      * @author Ayanesh Sarkar <ayaneshsarkar101@gmail.com>
      * @package app\controllers
